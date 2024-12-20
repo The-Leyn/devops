@@ -26,6 +26,6 @@ jobs:
           npm install
           cd ..
           cd frontend
-          pip install
+          pip install -r requirements.txt
           cd ..
           echo "Install Completed"
