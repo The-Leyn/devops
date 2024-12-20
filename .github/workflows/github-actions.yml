@@ -63,7 +63,7 @@ jobs:
   build-images:
     name: Build Docker Images
     # Ajouter tests
-    needs: build 
+    needs: tests 
     runs-on: ubuntu-latest
     environment: secrets
     steps:
