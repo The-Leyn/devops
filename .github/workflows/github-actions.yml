@@ -76,7 +76,7 @@ jobs:
 
       - name: Run Docker Compose
         run: docker-compose up -d
-
+      # Login to docker
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
