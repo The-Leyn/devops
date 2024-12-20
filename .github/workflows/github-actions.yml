@@ -85,9 +85,9 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
   
   push-images:
-    name: Build Docker Images
+    name: Push Docker Images
     # Ajouter tests
-    needs: build 
+    needs: build-images 
     runs-on: ubuntu-latest
     environment: secrets
     steps:
@@ -109,4 +109,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push images
-        run: docker push
+        run: |
+          docker push theleyn/tp-backend:v1.0
+          docker push theleyn/tp-frontend:v1.0
