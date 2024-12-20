@@ -65,6 +65,7 @@ jobs:
     # Ajouter tests
     needs: build 
     runs-on: ubuntu-latest
+    environment: secrets
     steps:
       - name: Checkout Github Repo
         uses: actions/checkout@v4
