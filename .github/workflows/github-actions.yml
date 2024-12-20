@@ -110,3 +110,4 @@ jobs:
         run: |
           docker push theleyn/tp-backend:v1.0
           docker push theleyn/tp-frontend:v1.0
+          # 
