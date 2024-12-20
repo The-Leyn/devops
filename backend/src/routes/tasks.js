@@ -2,13 +2,13 @@ const express = require('express');
 const router = express.Router();
 const Task = require('../models/task');
 
-// Récupérer toutes les tâches
+// Select all
 router.get('/', async (req, res) => {
   const tasks = await Task.find({});
   res.json(tasks);
 });
 
-// Créer une nouvelle tâche
+// Add
 router.post('/', async (req, res) => {
   const { title } = req.body;
   const newTask = new Task({ title });
@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
   res.json(newTask);
 });
 
-// Mettre à jour une tâche (par ex. la marquer faite)
+// Update
 router.put('/:id', async (req, res) => {
   const { id } = req.params;
   const { done } = req.body;
@@ -24,7 +24,7 @@ router.put('/:id', async (req, res) => {
   res.json(updatedTask);
 });
 
-// Supprimer une tâche
+// Delete
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
   await Task.findByIdAndDelete(id);

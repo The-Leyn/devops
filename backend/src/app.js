@@ -8,13 +8,6 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
-// en localParser: true,
-//   useUnifiedTopology: true,
-// mongoose.connect('mongodb://localhost:27017/todoapp', {
-//   useNewUrl
-// });
-// container
-
 mongoose.connect('mongodb://mongo:27017/todoapp', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
