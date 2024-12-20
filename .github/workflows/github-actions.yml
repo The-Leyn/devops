@@ -19,7 +19,6 @@ jobs:
         with:
           python-version: '3.13'
       
-
       - name: Install dependencies
         run: | 
           cd backend
@@ -29,3 +28,34 @@ jobs:
           pip install -r requirements.txt
           cd ..
           echo "Install Completed"
+
+  tests:
+    name: ReBuild and Test
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Github Repo
+        uses: actions/checkout@v4
+      
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+      
+      - name: Install dependencies
+        run: | 
+          cd backend
+          npm install
+          cd ..
+          cd frontend
+          pip install -r requirements.txt
+          cd ..
+          echo "Install Completed"
+      
+      - name: launch Test
+        run: pytest
